@@ -133,12 +133,25 @@ var multiply = function(num1, num2, cb){
       cb(arr);
     };
 
-    // alternative way, more looping, (I guess more strain on CPU) but doesn't alphabetize array, so more correct I guess
 
+
+    var uniq = function(arr, cb){
+      var newNames = [];
+      for(var i=0; i<arr.length; i++){
+        if(newNames.indexOf(arr[i])===-1){
+          newNames.push(arr[i]);
+        }
+      }
+      cb(newNames);
+    };
+
+
+    // alternative way, more looping, (I guess more strain on CPU) 
+    // and doesn't work, 
     // function uniq(arr, cb){
-    //   for(var i=0; i<arr.length; i++){
+    //   for(var i=arr.length-1; i>=1; i--){
     //     var currentName = arr[i];
-    //     for(var k=i+1; k<arr.length; k++){
+    //     for(var k=arr.length-2; k>=0; k--){
     //       if(currentName===arr[k]){
     //         arr.splice(k, 1);
     //       }
