@@ -178,11 +178,20 @@ var multiply = function(num1, num2, cb){
 
     var names = ['Tyler', 'Cahlan', 'Ryan', 'Colt', 'Tyler', 'Blaine', 'Cahlan'];
 
+
     var each = function(arr, cb){
-      var randIndice = Math.floor((Math.random()*arr.length));  // makes random indice that is in array
-      var item = arr[randIndice];
-      cb(item, randIndice);
+      for(var i=0; i<arr.length; i++){
+        cb(arr[i], i);
+      }
     };
+
+
+
+    // var each = function(arr, cb){
+    //   var randIndice = Math.floor((Math.random()*arr.length));  // makes random indice that is in array
+    //   var item = arr[randIndice];
+    //   cb(item, randIndice);
+    // };
 
     each(names, function(item, indice){
       console.log('The item in the ' + indice + ' position is ' + item);
